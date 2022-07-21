@@ -10,9 +10,9 @@ const CartWidget = () => {
   //Pedido en enunciado className="cart-widget" // contador <div className="qty-display">0</div>
   return (
     <div >
-      
+            
       <FontAwesomeIcon icon={ faCartShopping } size="1x" color='white'  />
-      
+
       
     </div>
   );

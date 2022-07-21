@@ -3,7 +3,7 @@ import './App.css';
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
 import ItemProduct from './components/ItemProduct/ItemProduct';
-
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 //importo para Boostrap-react ----
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,18 +14,17 @@ import Row from 'react-bootstrap/Row';
 //Funcion App principal
 
 function App() {
-  const estiloBase = { padding: "10px 10px" }
+  //const estiloBase = { padding: "10px 10px" }
   return (
     
-    <div className="App"> 
-      <header className="App-header row" style={estiloBase}>
+    <div > 
+      <header >
       <Container>
 
             <NavBar />
 
-       
-
         <Row>
+          <ItemListContainer />
           <div className=" main-container">
             <h2> Productos </h2>
             <div className=" list-products">
