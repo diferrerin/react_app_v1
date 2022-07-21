@@ -1,22 +1,47 @@
 //import logo from './logo.svg';
 import './App.css';
+import './App.scss';
 import NavBar from './components/NavBar/NavBar';
+import ItemProduct from './components/ItemProduct/ItemProduct';
+
+
+//importo para Boostrap-react ----
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+
 
 //Funcion App principal
 
 function App() {
-  const estiloBase = { padding: "10px 10px", backgroundColor: "Red" }
+  const estiloBase = { padding: "10px 10px" }
   return (
+    
     <div className="App"> 
-      <header className="App-header" style={estiloBase}>
-        
-        <NavBar />
+      <header className="App-header row" style={estiloBase}>
+      <Container>
 
-        <p>
-           <code>src/App.js</code> Test Tienda Online.
-        </p>
+            <NavBar />
+
+       
+
+        <Row>
+          <div className=" main-container">
+            <h2> Productos </h2>
+            <div className=" list-products">
+                <ItemProduct name="Camisa Sport" price="15000" />
+                <ItemProduct name="Remera lisa" price="5000" />
+            </div>
+          </div>
+        </Row>
+      </Container>
 
       </header>
+      <body>
+
+      </body>
+
+
     </div>
   );
 }
