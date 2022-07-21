@@ -12,17 +12,19 @@ const NavBar = () => {
     return (//codigo JSX <CartWidget />
             <div>
                 <Navbar bg="dark" variant="dark">
-                 <Container>
-                  <Navbar.Brand href="#home">Deferrari Online Store</Navbar.Brand>
+                  <Container>
+                   <Navbar.Brand href="#home">Deferrari Online Store</Navbar.Brand>
                      <Nav className="me-auto">
                      <Nav.Link href="#home">Home</Nav.Link>
                      <Nav.Link href="#products">Products</Nav.Link>
-                    <Nav.Link href="#about">About Us</Nav.Link>
-                   
-                    <CartWidget />
-                    
-                </Nav>
-                </Container>
+                     <Nav.Link href="#about">About Us</Nav.Link>
+                     <Nav.Link href="#cart">
+                        <CartWidget />
+                     </Nav.Link>
+                     
+
+                    </Nav>
+                  </Container>
                  </Navbar>
             </div>
     )  

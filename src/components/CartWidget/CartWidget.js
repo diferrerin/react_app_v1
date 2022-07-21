@@ -1,18 +1,19 @@
 
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 //import {  fa-cart-shopping } from '@fortawesome/free-solid-svg-icons';
 
 import './CartWidget.scss';
 
 const CartWidget = () => {
-  //Pedido en enunciado
+  //Pedido en enunciado className="cart-widget" // contador <div className="qty-display">0</div>
   return (
-    <div className="cart-widget">
-      {/*  FontAwesome para React JS. No anda size="2x" */}
-      <FontAwesomeIcon icon=" fa-cart-shopping"    />
+    <div >
       
-      <div className="qty-display">0</div>
+      <FontAwesomeIcon icon={ faCartShopping } size="1x" color='white'  />
+      
+      
     </div>
   );
 };
