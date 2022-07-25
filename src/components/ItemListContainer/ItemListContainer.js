@@ -9,7 +9,7 @@ const ItemListContainer = ()=>{
             <div className=" list-products">
                 <ItemProduct name="Camisa Sport" price={15000} stock= {25}/>
                 <ItemProduct name="Remera lisa" price= {5000} stock= {15}/>
-                <ItemProduct name="Chomba" price= {7000} stock= {10} />
+                <ItemProduct name="Chomba" price= {7000} stock= {0} />
             </div>
             
 

@@ -1,15 +1,18 @@
 // Componente para contar Items, controlado por botones +-  (Min: 1 - Max: ItemProduct.Stock)
-    //Mejora: Falta chequear que si el stock es 0 no muestre 1, y ponga cartel de "sin stock"
 import "./ItemCount.scss"
 import {useState} from "react"; //Para poder definir estados
 
 const ItemCount = ({min,max})=>{
-    const [ plusCounter , setPlusCounter ] = useState(1); //Estado para Contador
+    const [ plusCounter , setPlusCounter ] = useState(min); //Estado para Contador
     const addNum = ()=>{
-        if ( plusCounter < max ){
-            setPlusCounter( plusCounter + 1 );
-        }else {
-            setPlusCounter( plusCounter );
+        if ( max != 0) {
+            if ( plusCounter < max ){
+                setPlusCounter( plusCounter + 1 );
+            }else {
+                setPlusCounter( plusCounter );
+            }
+        } else {
+            setPlusCounter( 0 );
         }
         
     }
@@ -17,7 +20,7 @@ const ItemCount = ({min,max})=>{
         if ( plusCounter > min){
             setPlusCounter( plusCounter - 1 );
         }else {
-            setPlusCounter( 1 );
+            setPlusCounter( 0 );
         }
     }
     return (

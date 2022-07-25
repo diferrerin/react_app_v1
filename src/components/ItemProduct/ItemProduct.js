@@ -11,7 +11,7 @@ const ItemProduct = (props , action)=>{
             <p> {name} </p>
             <p> Stock: {stock} </p>
             <span> $ {price}</span>
-            <ItemCount min= {1} max= {stock} />
+            <ItemCount min= {0} max= {stock} />
             <button onClick={action}> Agregar </button>
        </div> 
     )
