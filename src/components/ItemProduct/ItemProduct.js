@@ -1,13 +1,18 @@
 import "./ItemProduct.scss";
+import ItemCount from "../ItemCount/ItemCount";// Para el contador  <ItemCount />
 
-const ItemProduct = (props)=>{
-    
+//Para pasar imagen: <img src={`/assets/${image} `} alt="Imagen" />
+const ItemProduct = (props , action)=>{
+    const {name,price,stock} = props;//desestructuramos, se puede pasar como parametros en vez de props
+
     return(
        <div className = "item-product" >
-            <img src="" alt="Imagen Prod A" />
-            <p> Producto A </p>
-            <span> $10000</span>
-            <button> Agregar </button>
+            <img src="" alt="Imagen Prod A" />  
+            <p> {name} </p>
+            <p> Stock: {stock} </p>
+            <span> $ {price}</span>
+            <ItemCount min= {1} max= {stock} />
+            <button onClick={action}> Agregar </button>
        </div> 
     )
 }

@@ -2,49 +2,48 @@
 import './App.css';
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
-import ItemProduct from './components/ItemProduct/ItemProduct';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-
+import Modal from './components/Modal/Modal';
 //importo para Boostrap-react ----
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
-
 //Funcion App principal
-
 function App() {
-  //const estiloBase = { padding: "10px 10px" }
-  return (
-    
-    <div > 
+  return ( 
+    <> 
       <header >
-      <Container>
-
-            <NavBar />
-
-        <Row>
-          <ItemListContainer />
-          <div className=" main-container">
-            <h2> Productos </h2>
-            <div className=" list-products">
-                <ItemProduct name="Camisa Sport" price="15000" />
-                <ItemProduct name="Remera lisa" price="5000" />
-            </div>
-          </div>
-        </Row>
-      </Container>
-
+        <Container>   
+          <Row>
+              <NavBar />
+          </Row>
+        </Container>
       </header>
       <body>
-
+        <Container>
+          <Row>
+            <div className=" main-container">
+              <h2> Productos </h2>
+              <ItemListContainer />
+            </div>
+          </Row>
+          <Row>
+              <Modal name=" Registro  ">
+                  <form>
+                      <input type="text" />
+                      <button>Enviar</button>
+                  </form>
+              </Modal> 
+          </Row>
+          
+        </Container>
+      
       </body>
-
-
-    </div>
+    </>
   );
 }
-
+//  <Modal />  no funciona ok
 export default App;
 
 /*  Data de archivo base React
