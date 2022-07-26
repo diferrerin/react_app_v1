@@ -5,7 +5,7 @@ import {useState} from "react"; //Para poder definir estados
 const ItemCount = ({min,max})=>{
     const [ plusCounter , setPlusCounter ] = useState(min); //Estado para Contador
     const addNum = ()=>{
-        if ( max != 0) {
+        if ( max !== 0) {
             if ( plusCounter < max ){
                 setPlusCounter( plusCounter + 1 );
             }else {

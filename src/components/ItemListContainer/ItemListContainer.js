@@ -1,20 +1,39 @@
 import "./ItemListContainer.scss";
-import ItemProduct from "../ItemProduct/ItemProduct";
+import { useEffect, useState } from "react";
+import ItemList from "../ItemList/ItemList";
+import products from "../../utils/product.mock";//Simulamos DB backend
 
-const ItemListContainer = ()=>{
-   //Mejora posible: Se puede generar una lista de objetos Item y mandarla. Tambien cargar desde JSon/o base de datos firebase.
+const ItemListContainer = ({section})=>{
+
+
+    const [ listProducts, setListProducts]= useState( [] );
+    //falta ver el reject
+    const getProducts = new Promise( (resolve,reject) => {
+            setTimeout( ()=>{ resolve(products); } , 2000 );
+        }
+    );
+    //Definimos que sea para el montaje (ciclo de vida)
+    useEffect( () => {
+        getProducts.then(
+            (res)=>{
+                console.log("Productos: ", res);//Los valores del array cargan en res OK.
+                setListProducts(res);
+                
+            }
+        ).catch(  (errorGet) => {  console.log("fallo la llamada a la lista de productos.")  }    )
+    } , [] ); // eslint-disable-line react-hooks/exhaustive-deps
+    //Warning React Hook useEffect has a missing dependency: 'getProducts'. Either include it or remove the dependency array
+   
+    console.log("Set List Prod: ", listProducts);
+
     return(
        <div className = "item-list-cont" >
-            
             <div className=" list-products">
-                <ItemProduct name="Camisa Sport" price={15000} stock= {25}/>
-                <ItemProduct name="Remera lisa" price= {5000} stock= {15}/>
-                <ItemProduct name="Chomba" price= {7000} stock= {0} />
+                <h3> {section} </h3>
+                <ItemList dataProducts={listProducts}/>
             </div>
-            
-
        </div> 
     )
 }
 
-export default ItemListContainer
+export default ItemListContainer;

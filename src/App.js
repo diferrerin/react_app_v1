@@ -3,7 +3,7 @@ import './App.css';
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import Modal from './components/Modal/Modal';
+//import Modal from './components/Modal/Modal'; //Para usar Modal
 //importo para Boostrap-react ----
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -20,7 +20,7 @@ function App() {
           </Row>
         </Container>
       </header>
-      <body>
+      
         <Container>
           <Row>
             <div className=" main-container">
@@ -28,6 +28,15 @@ function App() {
               <ItemListContainer />
             </div>
           </Row>
+        </Container>
+      
+    </>
+  );
+}
+
+export default App;
+
+/*  MODAL desactivado:
           <Row>
               <Modal name=" Registro  ">
                   <form>
@@ -36,25 +45,5 @@ function App() {
                   </form>
               </Modal> 
           </Row>
-          
-        </Container>
-      
-      </body>
-    </>
-  );
-}
-//  <Modal />  no funciona ok
-export default App;
-
-/*  Data de archivo base React
-      <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
 
 */
