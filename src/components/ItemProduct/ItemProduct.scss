@@ -1,14 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+ *,btn-product{
+    box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
 .item-product{
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    align-items: center;
+    position: relative;
     float:left;
-    width:25%;
-    box-shadow: 1px 1px 5px gray ;
-
+    height: 379px;
+    width: 290px;
+    box-shadow: 1px 1px 5px rgb(60, 60, 60) ;
+    border-radius: 10px;
+    background-image: linear-gradient(120deg,  #343A4F, #0F1620) ;
+    margin: 10px;
+    padding: 3px;
+    color: whitesmoke;
+    border: 1px solid white;
 }
 
 .item-product img{
-    width: 75%;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 60%;
+    border-radius: 5px;
 }
+.btn-product{
+    outline: 0;
+    border: 0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-image: linear-gradient(85deg, #61c7ef, #4833fb);
+    color: white;
+}
+.count-product{
+    display: flex;
+}
+
+
+

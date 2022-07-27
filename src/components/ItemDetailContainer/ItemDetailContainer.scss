@@ -1,0 +1,11 @@
+popular-header:before {
+    content: "";
+    background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    z-index: 1;
+    border-radius: 12px;
+}

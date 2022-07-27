@@ -3,6 +3,7 @@ import './App.css';
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 //import Modal from './components/Modal/Modal'; //Para usar Modal
 //importo para Boostrap-react ----
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,15 +22,21 @@ function App() {
         </Container>
       </header>
       
-        <Container>
+        <Container >
           <Row>
-            <div className=" main-container">
+            <div className=" app">
               <h2> Productos </h2>
               <ItemListContainer />
+              
             </div>
           </Row>
         </Container>
-      
+
+        <Container>
+            <h2> Detalle de Item </h2>
+            <ItemDetailContainer nroItem={3} />
+        </Container>
+
     </>
   );
 }

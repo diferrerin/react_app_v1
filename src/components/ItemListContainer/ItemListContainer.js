@@ -14,16 +14,12 @@ const ItemListContainer = ({section})=>{
     useEffect( () => {
         getProducts.then(
             (res)=>{
-                console.log("Productos: ", res);//Los valores del array cargan en res OK.
-                setListProducts(res);
-                
+                setListProducts(res); 
             }
         ).catch(  (errorGet) => {  console.log("fallo la llamada a la lista de productos.")  }    )
     } , [] ); // eslint-disable-line react-hooks/exhaustive-deps
     //Warning React Hook useEffect has a missing dependency: 'getProducts'. Either include it or remove the dependency array
    
-    console.log("Set List Prod: ", listProducts); //El array pasa OK a listProducts
-
     return(
        <div className = "item-list-cont" >
             <div className=" list-products">
