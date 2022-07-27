@@ -4,8 +4,6 @@ import ItemList from "../ItemList/ItemList";
 import products from "../../utils/product.mock";//Simulamos DB backend
 
 const ItemListContainer = ({section})=>{
-
-
     const [ listProducts, setListProducts]= useState( [] );
     //falta ver el reject
     const getProducts = new Promise( (resolve,reject) => {
@@ -24,7 +22,7 @@ const ItemListContainer = ({section})=>{
     } , [] ); // eslint-disable-line react-hooks/exhaustive-deps
     //Warning React Hook useEffect has a missing dependency: 'getProducts'. Either include it or remove the dependency array
    
-    console.log("Set List Prod: ", listProducts);
+    console.log("Set List Prod: ", listProducts); //El array pasa OK a listProducts
 
     return(
        <div className = "item-list-cont" >

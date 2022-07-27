@@ -2,7 +2,7 @@ import "./ItemProduct.scss";
 import ItemCount from "../ItemCount/ItemCount";// Para el contador  <ItemCount />
 
 //Para pasar imagen: <img src={`/assets/${img} `} alt="Imagen" />  en boton onClick={action}
-const ItemProduct = (props , key)=>{
+const ItemProduct = ({props} , {key})=>{
 
 
     const {name,price,stock,img} = props;//desestructuramos, se puede pasar como parametros en vez de props
