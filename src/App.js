@@ -2,18 +2,21 @@
 import './App.css';
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 //import Modal from './components/Modal/Modal'; //Para usar Modal
 //importo para Boostrap-react ----
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import {BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Detail from './pages/Detail';
 
-//Funcion App principal
+//Funcion App principal 
+//-----Se modifica item:id 01/08/22------
 function App() {
   return ( 
     <> 
+    <BrowserRouter>
       <header >
         <Container>   
           <Row>
@@ -21,22 +24,32 @@ function App() {
           </Row>
         </Container>
       </header>
-      
-        <Container >
-          <Row>
-            <div className=" app">
-              <h2> Productos </h2>
-              <ItemListContainer />
-              
-            </div>
-          </Row>
-        </Container>
 
-        <Container>
-            <h2> Detalle de Item </h2>
-            <ItemDetailContainer nroItem={3} />
-        </Container>
+        <Routes>
+            <Route path='/' element= {
+                    <Container >
+                    <Row>
+                        <Home />
+                    </Row>
+                  </Container>
+            } />
 
+            <Route path='/contacto' element={
+              <h3> Contacto WIP </h3>
+            } />
+
+            <Route path='/:category/:itemId' element={
+                      <Container>
+                          <h2> Detalle de Item </h2>
+                          <Detail  />
+                      </Container>
+            }/>
+            <Route path='/category/:catId'/>
+
+            <Route path='*' element={ <h2> Lo sentimos, esa pagina no existe (404) </h2>}/>
+
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
