@@ -10,9 +10,10 @@ import Row from 'react-bootstrap/Row';
 import {BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
+import Products from './pages/Products';
 
 //Funcion App principal 
-//-----Se modifica item:id 01/08/22------
+//-----Se modifica item:id 03/08/22------ funciona ok
 function App() {
   return ( 
     <> 
@@ -24,7 +25,6 @@ function App() {
           </Row>
         </Container>
       </header>
-
         <Routes>
             <Route path='/' element= {
                     <Container >
@@ -38,16 +38,22 @@ function App() {
               <h3> Contacto WIP </h3>
             } />
 
-            <Route path='/:category/:itemId' element={
+            <Route path='/item/:id' element={
                       <Container>
                           <h2> Detalle de Item </h2>
                           <Detail  />
                       </Container>
             }/>
-            <Route path='/category/:catId'/>
+            
+            <Route path='/category/:id' element={
+                      <Container>
+                          <Products  /> 
+                      </Container>
+            }
+            
+            />
 
             <Route path='*' element={ <h2> Lo sentimos, esa pagina no existe (404) </h2>}/>
-
         </Routes>
       </BrowserRouter>
     </>

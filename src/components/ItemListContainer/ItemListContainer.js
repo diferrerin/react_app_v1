@@ -5,8 +5,8 @@ import products from "../../utils/product.mock";//Simulamos DB backend
 
 const ItemListContainer = ({section})=>{
     const [ listProducts, setListProducts]= useState( [] );
-    //falta ver el reject
-    const getProducts = new Promise( (resolve,reject) => {
+    
+    const getProducts = new Promise( (resolve,reject) => {//falta ver el reject
             setTimeout( ()=>{ resolve(products); } , 2000 );
         }
     );
@@ -14,7 +14,9 @@ const ItemListContainer = ({section})=>{
     useEffect( () => {
         getProducts.then(
             (res)=>{
+
                 setListProducts(res); 
+                
             }
         ).catch(  (errorGet) => {  console.log("fallo la llamada a la lista de productos.")  }    )
     } , [] ); // eslint-disable-line react-hooks/exhaustive-deps

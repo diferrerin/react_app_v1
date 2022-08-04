@@ -33,7 +33,7 @@ const NavBar = () => {
             <div>
                 <Navbar bg="dark" variant="dark">
                   <Container>
-                   <Navbar.Brand href="#home">Deferrari Online Store</Navbar.Brand>
+                   <Navbar.Brand ><Link to="/"> Deferrari Online Store </Link></Navbar.Brand>
                         <Nav className="me-auto">
 
                           <Link to="/"> Home </Link>

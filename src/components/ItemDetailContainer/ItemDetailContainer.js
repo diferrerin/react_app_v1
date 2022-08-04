@@ -3,14 +3,8 @@ import { useParams } from "react-router-dom";
 import products from "../../utils/product.mock";//Simulamos DB backend
 import ItemDetail from "../ItemDetail/ItemDetail";
 
-const ItemDetailContainer = ()=>{ //Parametro del Item a mostrar detalle {nroItem}
- //----------------------------------------------------------------------------------------------------------
-    console.log("useParam : ", useParams()) // FUNCIONA....... 
-    console.log("useParam 2 : ", useParams().itemId) 
-    const {category , valorId} = useParams();          //NO FUNCIONA....... NO TRAE EL PARAMETRO :ID
-    const itemId = valorId * 1; // parseInt(valorId , 10); //no funciona muestra valor NaN----------------------
-    console.log("useParam 3: ", itemId ,"categoria: ", category)     //NO FUNCIONA....... NO TRAE EL PARAMETRO :ID
-//----------------------------------------------------------------------------------------------------------
+const ItemDetailContainer = ()=>{ //Parametro del Item a mostrar detalle {id}
+    const {id} = useParams();  
     const [ item, setItem]= useState( [] ); //setea el estado item
     const getItem = new Promise( (resolve,reject) => { //toma todos los items
              resolve(products); 
@@ -20,11 +14,15 @@ const ItemDetailContainer = ()=>{ //Parametro del Item a mostrar detalle {nroIte
     useEffect( () => {
         getItem.then(
             (res)=>{
-                res.forEach(function(element) {// eslint-disable-next-line eqeqeq
-                    if (element.id == itemId) { 
+                res.forEach((element) => {
+                    // eslint-disable-next-line eqeqeq
+                    if (element.id == id) { 
                         //seteamos el estado con el elemento buscado 
-                        setTimeout( ()=>{ setItem(element); } , 2000 );
+                        //setTimeout( ()=>{ setItem(element); } , 2000 );
+                        setItem(element);
+                        return console.log("llamada exitosa");
                     }
+                    return true;
                   });
             }
         ).catch(  (errorGet) => {  console.log("fallo la llamada a la lista de productos.")  }    )
@@ -37,5 +35,4 @@ const ItemDetailContainer = ()=>{ //Parametro del Item a mostrar detalle {nroIte
         </>
     )
 }
-
 export default ItemDetailContainer;
