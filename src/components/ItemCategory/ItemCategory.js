@@ -1,4 +1,4 @@
-import "./ItemProduct.scss";
+//import "./ItemProduct.scss";
 import ItemCount from "../ItemCount/ItemCount";// Para el contador  <ItemCount />
 import { Link } from "react-router-dom";
 

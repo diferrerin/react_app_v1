@@ -4,14 +4,14 @@ import products from "../../utils/product.mock";//Simulamos DB backend
 import ItemCategoryList from "../ItemCategoryList/ItemCategoryList";
 
 const ItemCategoryCont = ()=>{ //Parametro del Item a listar {category}
-    const {category} = useParams();  
+    const {id} = useParams();  
     const [ items, setItems]= useState( [] ); //setea el estado item
     const getItems = new Promise( (resolve,reject) => { //toma todos los items
              resolve(products); 
         }
     );
     const filtraItems =  ( listaCompleta ) => {//Probamos el filter
-        let listaCategoria = listaCompleta.filter((item) => { return item.category === category  });
+        let listaCategoria = listaCompleta.filter((item) => { return item.category === id  });
         console.log(listaCategoria);
         return listaCategoria;
      };
