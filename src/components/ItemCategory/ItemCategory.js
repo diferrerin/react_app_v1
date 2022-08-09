@@ -7,7 +7,7 @@ const ItemCategory = ({props} , {key})=>{
     
     return(
             <div className = "item-product" >
-                    <Link to = {  `/category/${id} ` } >
+                    <Link to = {  `/item/${id} ` } >
                          <h4 className = "title-product"> {name} </h4>   
                     </Link>
                     <img src={ `/assets/${img} `} alt={`Imagen : ${img} `} sacar={key} />  

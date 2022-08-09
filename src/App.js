@@ -11,6 +11,7 @@ import {BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
 import Products from './pages/Products';
+import Checkout from './pages/Checkout';
 
 //Funcion App principal 
 //-----Se modifica item:id 03/08/22------ funciona ok
@@ -49,10 +50,9 @@ function App() {
                       <Container>
                           <Products  /> 
                       </Container>
-            }
-            
+            } 
             />
-
+            <Route path='/cart' element={ <Checkout />}/>
             <Route path='*' element={ <h2> Lo sentimos, esa pagina no existe (404) </h2>}/>
         </Routes>
       </BrowserRouter>

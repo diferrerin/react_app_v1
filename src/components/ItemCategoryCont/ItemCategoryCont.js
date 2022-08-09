@@ -23,7 +23,7 @@ const ItemCategoryCont = ()=>{ //Parametro del Item a listar {category}
                 setItems( filtraItems(res) );
             }
         ).catch(  (errorGet) => {  console.log("fallo la llamada a la lista de productos.")  }    )
-    } , [] ); // eslint-disable-line react-hooks/exhaustive-deps
+    } , [id] ); // eslint-disable-line react-hooks/exhaustive-deps
     return(
         <>
             <div className=" list-products">
