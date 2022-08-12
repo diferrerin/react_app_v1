@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const ItemDetail = ({props}) => {
     const {name,price,stock,img,id,detail} = props;
     const [ qtyCart, setQtyCart] =  useState(0); //Estado para guardar la cantidad del ItemCount.
-
+    //Ver ItemCount itemAdd props linea 21
     return(
         <>  
             <div className = "item-product" >
@@ -18,7 +18,7 @@ const ItemDetail = ({props}) => {
                 {
                     qtyCart > 0 ?
                      <Link to="/cart"> <button > TERMINAR COMPRA </button> </Link> :
-                     <ItemCount min = {0} max = {stock} qtyCart = {setQtyCart} />
+                     <ItemCount min = {0} max = {stock} qtyCart = {setQtyCart} productData = {props} />
                 }
                 
                 {/*<ItemCount min = {0} max = {stock} qtyCart = {setQtyCart} />

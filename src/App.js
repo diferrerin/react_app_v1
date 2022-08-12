@@ -12,12 +12,15 @@ import Home from './pages/Home';
 import Detail from './pages/Detail';
 import Products from './pages/Products';
 import Checkout from './pages/Checkout';
+//import de contexto:
+import CartProvider from './context/CartContext';
 
 //Funcion App principal 
 //-----Se modifica item:id 03/08/22------ funciona ok
 function App() {
   return ( 
     <> 
+    <CartProvider>
     <BrowserRouter>
       <header >
         <Container>   
@@ -56,6 +59,7 @@ function App() {
             <Route path='*' element={ <h2> Lo sentimos, esa pagina no existe (404) </h2>}/>
         </Routes>
       </BrowserRouter>
+      </CartProvider>
     </>
   );
 }

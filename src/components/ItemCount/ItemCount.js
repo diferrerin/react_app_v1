@@ -1,9 +1,13 @@
 // Componente para contar Items, controlado por botones +-  (Min: 1 - Max: ItemProduct.Stock)
 import "./ItemCount.scss"
-import {useState} from "react"; //Para poder definir estados
+import {useState,useContext} from "react"; //Para poder definir estados
+import { CartContext } from "../../context/CartContext";
 
-const ItemCount = ({min,max,qtyCart})=>{
+const ItemCount = ({min,max,qtyCart, productData})=>{
     const [ plusCounter , setPlusCounter ] = useState(min); //Estado para Contador
+
+    const {  addToCart } = useContext (CartContext)//Para usar el contexto de carrito    ,,cartProducts,
+
     const addNum = ()=>{ //Agrega Cantidad
         if ( max !== 0) {
             if ( plusCounter < max ){
@@ -24,7 +28,10 @@ const ItemCount = ({min,max,qtyCart})=>{
         }
     }
     const onAdd = ()=>{ //pasa al ItemDetail, el valor de cantidad para guardarlo en un estado
+        
         qtyCart(plusCounter);
+
+        addToCart(productData);//revisar--------------------------------------------------<<<
     }
 
     return (
