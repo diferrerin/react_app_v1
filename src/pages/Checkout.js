@@ -1,10 +1,13 @@
+import Cart from "../components/Cart/Cart";
 const Checkout = ()=>{
    
     return(
         <>
 
-             <h2> pagina CARRITO WIP </h2>
+            <Cart />
         </>
     )
 }
 export default Checkout;
+
+

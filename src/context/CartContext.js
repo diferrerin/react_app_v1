@@ -4,8 +4,8 @@ const CartContext = createContext(); //Define el contexto
 
 const CartProvider = ({children})=>{ //provee la info del contexto.
     const [cartProducts, setCartProducts] = useState([]); //array vacio para productos
-    const [contador, setContador] = useState(0);
-    const [totalCart, setTotalCart] = useState(0);
+    const [contador, setContador] = useState(0); // Contador de cantidad de items en carrito
+    const [totalCart, setTotalCart] = useState(0);// Precio final del carrito
     //funciones:
     const addToCart = (product) => {
         const isInCart = cartProducts.find( //chequea si el producto ya está en el carrito, para sumar la cantidad sin agregar duplicado
@@ -30,7 +30,7 @@ const CartProvider = ({children})=>{ //provee la info del contexto.
         }
         setContador( contador + product.cantidad );
         setTotalCart( // igual a lo que estaba mas el producto nuevo (cantidad * precio)
-            totalCart + parseInt(product.cantidad) * parseFloat(product.price) // .slice(2)
+            totalCart + parseInt(product.cantidad) * parseFloat(product.price) 
         );
     };
 
@@ -51,7 +51,7 @@ const CartProvider = ({children})=>{ //provee la info del contexto.
     };
 
     const data = { //objeto para pasar en value
-        cartProducts, setCartProducts, addToCart, removeFromCart, clearCart
+        cartProducts, setCartProducts, addToCart, removeFromCart, clearCart, contador, setContador
     }
 
     return ( //con value pasamos los estados y funciones a usar globalmente

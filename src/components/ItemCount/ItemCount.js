@@ -31,7 +31,7 @@ const ItemCount = ({min,max,qtyCart, productData})=>{
         
         qtyCart(plusCounter);
 
-        addToCart(productData);//revisar--------------------------------------------------<<<
+        addToCart(productData);//revisar---------------------------------------------------------<<<
     }
 
     return (

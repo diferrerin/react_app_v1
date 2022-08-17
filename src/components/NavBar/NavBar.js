@@ -20,7 +20,7 @@ const NavBar = () => {
     { name : "Camperas" , url : "/category/Camperas"},
     { name : "Pantalones" , url : "/category/Pantalones"}
   ];
-  return (//codigo JSX <CartWidget />
+  return (
             <div>
                 <Navbar bg="dark" variant="dark">
                   <Container>
