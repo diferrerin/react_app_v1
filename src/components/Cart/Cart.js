@@ -1,13 +1,26 @@
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { Link } from "react-router-dom";
+import CartItem from '../CartItem/CartItem';
 
 const Cart = ()=>{
-   const { cartProducts } = useContext(CartContext); // Hacer el map para mostrar
-    return(
+   const { cartProducts, totalCart } = useContext(CartContext); // Hacer el map para mostrar
+
+    if (cartProducts.length === 0){
+        return(
+            <>
+                 <p> No hay productos en el carrito. Vuelve al shop. </p>
+                 <Link to='/'> COMPRAR </Link>
+            </>
+        )
+    }
+
+    return( //COMO PASAR LA CANTIDAD INDIVIDUAL DE CADA PRODUCTO..... qty={}
         <>
-
-             <h2> Cart Checkout</h2>
-
+            {
+                cartProducts.map ( product => <CartItem key= {product.id} props={product}  /> )
+            }
+            <p> -Total Carrito: AR$ { totalCart } </p>
         </>
     )
 }

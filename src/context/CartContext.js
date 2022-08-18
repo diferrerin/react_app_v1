@@ -51,8 +51,16 @@ const CartProvider = ({children})=>{ //provee la info del contexto.
     };
 
     const data = { //objeto para pasar en value
-        cartProducts, setCartProducts, addToCart, removeFromCart, clearCart, contador, setContador
-    }
+        cartProducts,
+        setCartProducts, 
+        addToCart, 
+        removeFromCart, 
+        clearCart, 
+        contador, 
+        setContador,
+        totalCart,
+        setTotalCart
+    }//"Contador" es el total de los productos en el carrito, "totalCart" es el precio total
 
     return ( //con value pasamos los estados y funciones a usar globalmente
         <CartContext.Provider value={ data }>
