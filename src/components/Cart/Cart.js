@@ -29,7 +29,7 @@ const Cart = ()=>{
                 } ))
         }
         <div className='total-cart-price'>
-            {cartProducts.length!==0 && <p>PRECIO FINALl: ${totalCart}</p>}
+            {cartProducts.length!==0 && <p>PRECIO FINAL: ${totalCart}</p>}
         </div>
 
     </>
