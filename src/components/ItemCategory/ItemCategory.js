@@ -1,5 +1,5 @@
 //import "./ItemProduct.scss";
-import ItemCount from "../ItemCount/ItemCount";// Para el contador  <ItemCount />
+//import ItemCount from "../ItemCount/ItemCount";// Para el contador  <ItemCount />
 import { Link } from "react-router-dom";
 
 const ItemCategory = ({props} , {key})=>{
@@ -12,9 +12,11 @@ const ItemCategory = ({props} , {key})=>{
                     </Link>
                     <img src={ `/assets/${img} `} alt={`Imagen : ${img} `} sacar={key} />  
                     <p> Stock: {stock}   AR$ {price}</p>
+                    {/*
+                        <ItemCount min= {0} max= {stock} className = "count-product" />
+                        <button className = "btn-product"> Agregar </button> */
+                    }
                     
-                    <ItemCount min= {0} max= {stock} className = "count-product" />
-                    <button className = "btn-product"> Agregar </button>
             </div>  
     )
 }

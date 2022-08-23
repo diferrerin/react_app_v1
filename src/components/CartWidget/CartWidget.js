@@ -2,22 +2,18 @@
 import { React , useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-//import {  fa-cart-shopping } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../../context/CartContext';
 import './CartWidget.scss';
 
 const CartWidget = () => {
-  //Pedido en enunciado className="cart-widget" // contador <div className="qty-display">0</div>
 
   const { cartProducts,  contador } = useContext(CartContext);
 
   return ( //NO FUNCIONA, no muestra el valor de contador.............
     <div >
-      
       <FontAwesomeIcon icon={ faCartShopping } size="1x" color='white'  />
-      { cartProducts.length !== 0 && <p > { contador } cont</p> }
-      
-      
+      { cartProducts.length !== 0 && <p> { contador } cont</p> }
+
     </div>
   );
 };

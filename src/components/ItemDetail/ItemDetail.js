@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 
 //Guardar la cantidad cuando se haga clic al ADD TO CART
 const ItemDetail = ({props}) => {
-    const {name,price,stock,img,id,detail} = props;
-    const [ qtyCart, setQtyCart] =  useState(0); //Estado para guardar la cantidad del ItemCount.
+    
+    const {name,price,stock,img,id,detail} = props; //Propiedades que vienen de ItemDetailContainer
+
+    const [ qtyCart, setQtyCart] =  useState(0); //Estado para guardar la CANTIDAD del ItemCount.
     //Ver ItemCount itemAdd props linea 21
     return(
         <>  
@@ -14,15 +16,12 @@ const ItemDetail = ({props}) => {
                 <img src={`/assets/${img} `} alt={`Imagen : ${img} `} />  
                 <p> -ID: {id}   -Stock: {stock}   -AR$ {price}</p>
                 <p> -Descripcion: {detail}  </p>
-                <p> -Test Carrito*: {qtyCart}  </p>
+                <p> -Cantidad: {qtyCart}  </p>
                 {
                     qtyCart > 0 ?
-                     <Link to="/cart"> <button > TERMINAR COMPRA </button> </Link> :
-                     <ItemCount min = {0} max = {stock} qtyCart = {setQtyCart} productData = {props} />
+                     <Link to="/cart" style={{textDecoration: 'none'}} > <button > TERMINAR COMPRA </button> </Link> :
+                     <ItemCount  productData = {props}  qtyCart = {setQtyCart} />
                 }
-                
-                {/*<ItemCount min = {0} max = {stock} qtyCart = {setQtyCart} />
-                 <button > TERMINAR COMPRA </button> */}
             </div> 
             
         </>

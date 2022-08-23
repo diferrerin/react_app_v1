@@ -3,15 +3,18 @@ import "./ItemCount.scss"
 import {useState,useContext} from "react"; //Para poder definir estados
 import { CartContext } from "../../context/CartContext";
 
-const ItemCount = ({min,max,qtyCart, productData})=>{
-    const [ plusCounter , setPlusCounter ] = useState(min); //Estado para Contador
-
+const ItemCount = ({ qtyCart , productData })=>{
+    
     const {  addToCart } = useContext (CartContext)//Para usar el contexto de carrito    ,,cartProducts,
-
-    const addNum = ()=>{ //Agrega Cantidad
-        if ( max !== 0) {
-            if ( plusCounter < max ){
-                setPlusCounter( plusCounter + 1 );
+    const [ plusCounter , setPlusCounter ] = useState(0); //Estado para CONTAR 
+    const {stock} = productData
+    const [cantidadItem, setCantidadItem] = useState(1) //Estado para CANTIDAD ITEM 
+   
+    const addNum = ()=>{ //Agrega Cantidad (ADD PRODUCT)
+        if ( stock !== 0) {
+            if ( plusCounter < stock ){
+                setPlusCounter( plusCounter + 1 );  
+                setCantidadItem(plusCounter + 1 );
             }else {
                 setPlusCounter( plusCounter );
             }
@@ -21,8 +24,9 @@ const ItemCount = ({min,max,qtyCart, productData})=>{
         
     }
     const delNum = ()=>{ //Resta Cantidad
-        if ( plusCounter > min){
+        if ( plusCounter > 0){
             setPlusCounter( plusCounter - 1 );
+            setCantidadItem(plusCounter - 1 );
         }else {
             setPlusCounter( 0 );
         }
@@ -30,8 +34,9 @@ const ItemCount = ({min,max,qtyCart, productData})=>{
     const onAdd = ()=>{ //pasa al ItemDetail, el valor de cantidad para guardarlo en un estado
         
         qtyCart(plusCounter);
+        productData.cantidad = cantidadItem; //Agrega el parametro CANTIDAD ----<<<<
+        addToCart(productData);
 
-        addToCart(productData);//revisar---------------------------------------------------------<<<
     }
 
     return (

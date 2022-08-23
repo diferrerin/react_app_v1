@@ -6,7 +6,7 @@ const CartProvider = ({children})=>{ //provee la info del contexto.
     const [cartProducts, setCartProducts] = useState([]); //array vacio para productos
     const [contador, setContador] = useState(0); // Contador de cantidad de items en carrito
     const [totalCart, setTotalCart] = useState(0);// Precio final del carrito
-    //funciones:
+    //--------------funciones:-----------------------------------------------------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<<
     const addToCart = (product) => {
         const isInCart = cartProducts.find( //chequea si el producto ya está en el carrito, para sumar la cantidad sin agregar duplicado
             (productInCart) => productInCart.id === product.id 
@@ -49,6 +49,7 @@ const CartProvider = ({children})=>{ //provee la info del contexto.
         setCartProducts( cartProducts.filter( (product) => product.id !== id )  );
 
     };
+    //---------------------------------------FIN FUNCIONES DE CONTEXTO----------------------------<<<<<<<<<<<<<<<<<<<<<<<<
 
     const data = { //objeto para pasar en value
         cartProducts,
