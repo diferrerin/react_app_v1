@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 //import CartItem from '../CartItem/CartItem'; , totalCart 
 
 const Cart = ()=>{
-   const { cartProducts , removeFromCart } = useContext(CartContext); // Hacer el map para mostrar  (, removeFromCart)
+    const { cartProducts , removeFromCart, totalCart } = useContext(CartContext); // Hacer el map para mostrar  (, removeFromCart)
 
-    return( //COMO PASAR LA CANTIDAD INDIVIDUAL DE CADA PRODUCTO..... qty={} muestra 15000 eb el precio de todo REVISAR
 
-    //si agrego cualquier otra cosa de producto no anda: ej : <button onClick={  removeFromCart(product.id)  }  >ELIMINAR</button>
+    return( 
+
         <>
         { cartProducts.length === 0 ? 
             (<><p> No hay productos en el carrito. Vuelve al shop. </p>
@@ -21,12 +21,17 @@ const Cart = ()=>{
                             <h3>{product.name}</h3>
                             <p>{product.detail}</p>
                             <p> -Cantidad: {product.cantidad}   -AR$ unitario: {product.price}</p>
-                            
+                            <p> -SubTotal: { product.cantidad * product.price}</p>
+                            <button onClick={ () => removeFromCart(product.id)  }>ELIMINAR</button>
                         </div>
                         </>
                     )
                 } ))
         }
+        <div className='total-cart-price'>
+            {cartProducts.length!==0 && <p>PRECIO FINALl: ${totalCart}</p>}
+        </div>
+
     </>
 
        
