@@ -3,13 +3,12 @@ import { useParams } from "react-router-dom";
 //import products from "../../utils/product.mock";//Simulamos DB backend
 import ItemDetail from "../ItemDetail/ItemDetail";
 import db from "../../firebaseConfig";
-import { doc , getDocs } from "firebase/firestore";
+import { doc , getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = ()=>{ //Parametro del Item a mostrar detalle {id}
     const {id} = useParams(); 
     const [ item, setItem]= useState( [] ); //setea el estado item
-//NO FUNCA-------------------------------------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-   //ARMADO COMO EN CLASE; no trae data
+
     useEffect( () => {
         getProduct().then( (res)=>{
             setItem(res);
@@ -20,15 +19,15 @@ const ItemDetailContainer = ()=>{ //Parametro del Item a mostrar detalle {id}
     const getProduct = async () => {//metodo con FIREBASE FIRESTORE
         const docRef = doc( db, 'productos', id); //documento que necesitamos
         
-        const docSnapshot = await getDocs(docRef); //ESTO NO TRAE INFO: Uncaught (in promise) FirebaseError: Expected type 'Va', but it was: a custom va object
+        const docSnapshot = await getDoc(docRef); 
         
         let prod = docSnapshot.data();
         prod.id = docSnapshot.id;
-        console.log ("Firebase prod: ", prod);// NO FUNCIONA 
+        console.log ("Firebase prod: ", prod);
         return prod;
     }
+
     
-//NO FUNCA-------------------------------------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     return(
         <>
             <div className=" list-products">
