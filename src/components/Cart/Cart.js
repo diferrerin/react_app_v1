@@ -12,11 +12,11 @@ const Cart = ()=>{
     
     const [ showModal , setShowModal ] = useState(false);
     const [ showSuccess , setshowSuccess ] = useState();
-        // eslint-disable-next-line
+    // eslint-disable-next-line
     const [ order, setOrder] = useState(
-        {
+        { //"title" es "name" en la base de datos armada del producto
             items: cartProducts.map( (prod)=>{
-                return {  id: prod.id , title: prod.title, price: prod.price  }
+                return {  id: prod.id , name: prod.name, price: prod.price  }
             } ) ,
             buyer: {},
             //date: new Date().toLocaleString,
@@ -25,7 +25,7 @@ const Cart = ()=>{
     );
     const [ formData, setFormData] = useState({ 
         name: '',
-        phone: '',
+        phone: 0,
         email: ''
      });
 
@@ -37,6 +37,7 @@ const Cart = ()=>{
 
      const pushData = async(newOrder)=>{
         const collectionOrder = collection ( db, 'ordenes');
+        console.log("---ADD DOC--- ", newOrder );
         const orderDoc = await addDoc( collectionOrder, newOrder ); // ---------ERROR ACA-------->>> NO genera la orden, revisar
         console.log("ORDEN GENERADA: " , orderDoc);
         setshowSuccess(orderDoc.id);
@@ -44,8 +45,7 @@ const Cart = ()=>{
 
      const submitData = (e)=>{
         e.preventDefault();
-        pushData( {...order, buyer: formData});
-
+        pushData( { ...order , buyer: formData } );
      }
 
     return( 
@@ -93,7 +93,7 @@ const Cart = ()=>{
                                 <label >Numero de Telefono: </label>
                                 <input type='number' name='phone' placeholder='Ingrese Telefono' value={formData.phone} onChange={handleChange}/>
                                 <label >Correo Electronico: </label>
-                                <input type='email' name='email' placeholder='Ingrese EMail' value={formData.email} onChange={handleChange}/>
+                                <input type='text' name='email' placeholder='Ingrese EMail' value={formData.email} onChange={handleChange}/>
                                 
                                 <button type='submit'>ENVIAR</button>
                             </form>
