@@ -7,6 +7,7 @@ Se utilizó:
 - HTML + CSS (SCSS + bootstrap)
 - JS + React
 
+![test_react_appV1](https://user-images.githubusercontent.com/28490579/189503729-913c1552-1948-4973-bd65-484dbbcc67fb.gif)
 
 
 
