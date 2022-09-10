@@ -31,6 +31,7 @@ const ItemDetailContainer = ()=>{ //Parametro del Item a mostrar detalle {id}
     return(
         <>
             <div className=" list-products">
+                <h2> Detalle de Item </h2>
                 <ItemDetail props={item}/>
             </div>
         </>

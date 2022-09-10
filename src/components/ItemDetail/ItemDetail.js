@@ -1,3 +1,4 @@
+import "./ItemDetail.scss";
 import ItemCount from "../ItemCount/ItemCount";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -11,17 +12,31 @@ const ItemDetail = ({props}) => {
     //Ver ItemCount itemAdd props linea 21
     return(
         <>  
-            <div className = "item-product" >
-                <h4 className = "title-product"> {name} </h4>
-                <img src={`/assets/${img} `} alt={`Imagen : ${img} `} />  
-                <p> -ID: {id}   -Stock: {stock}   -AR$ {price}</p>
-                <p> -Descripcion: {detail}  </p>
-                <p> -Cantidad: {qtyCart}  </p>
-                {
-                    qtyCart > 0 ?
-                     <Link to="/cart" style={{textDecoration: 'none'}} > <button > TERMINAR COMPRA </button> </Link> :
-                     <ItemCount  productData = {props}  qtyCart = {setQtyCart} />
-                }
+            <div className = "item-detail" >
+                <div className = "title-img">
+                      <span className = "title-product"> {name} </span>
+                      <img src={`/assets/${img} `} alt={`Imagen : ${img} `} /> 
+                </div>
+                <div className = "item-data">
+
+                        <h5> Cantidad Disponible: </h5>
+                        <p>  {stock}   </p>
+                        <h5> Precio AR$: </h5>
+                        <p>  {price}</p>
+                        <h5> Descripcion: </h5>
+                        <p>  {detail}  </p>
+                        <h5> Identificador del producto: </h5>
+                        <p>  {id}  </p>
+                        <h5> Cantidad a comprar:  </h5>
+                        <p> {qtyCart}  </p>
+                        {
+                            qtyCart > 0 ?
+                            <Link to="/cart" style={{textDecoration: 'none'}} > <button > TERMINAR COMPRA </button> </Link> :
+                            <ItemCount  productData = {props}  qtyCart = {setQtyCart} />
+                        }
+                </div>
+                
+
             </div> 
             
         </>

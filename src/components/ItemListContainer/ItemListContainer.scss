@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+ *,btn-product{
+    box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+h2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    background-image: linear-gradient(120deg,  #343A4F, #0F1620) ;
+    margin: 10px;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid white;
+    box-shadow: 1px 1px 5px rgb(60, 60, 60) ;
+}

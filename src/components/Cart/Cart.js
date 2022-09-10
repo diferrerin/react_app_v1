@@ -1,3 +1,4 @@
+import "./Cart.scss";
 import { useContext , useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { Link } from "react-router-dom";
@@ -8,10 +9,10 @@ import { collection, addDoc } from 'firebase/firestore';
 
 
 const Cart = ()=>{
-    const { cartProducts , removeFromCart, totalCart } = useContext(CartContext); // Hacer el map para mostrar  (, removeFromCart)
-    
-    const [ showModal , setShowModal ] = useState(false);
-    const [ showSuccess , setshowSuccess ] = useState();
+    const { cartProducts , removeFromCart, totalCart } = useContext(CartContext); 
+
+    const [ showModal , setShowModal ] = useState(false); //MODAL PARA COMPLETAR DATOS DEL COMPRADOR
+    const [ showSuccess , setshowSuccess ] = useState(); //PARA FINALIZAR LA COMPRA OK
     // eslint-disable-next-line
     const [ order, setOrder] = useState(
         { //"title" es "name" en la base de datos armada del producto
@@ -30,56 +31,63 @@ const Cart = ()=>{
      });
 
      const handleChange = (e)=>{
-
         setFormData( { ...formData , [e.target.name] : e.target.value } ); 
-        //console.log("valores input: " , e.target.name);
+  
      }
 
      const pushData = async(newOrder)=>{
         const collectionOrder = collection ( db, 'ordenes');
         console.log("---ADD DOC--- ", newOrder );
-        const orderDoc = await addDoc( collectionOrder, newOrder ); // ---------ERROR ACA-------->>> NO genera la orden, revisar
+        const orderDoc = await addDoc( collectionOrder, newOrder ); 
         console.log("ORDEN GENERADA: " , orderDoc);
         setshowSuccess(orderDoc.id);
      }
 
      const submitData = (e)=>{
-        e.preventDefault();
+        e.preventDefault();//CHEQUEAR QUE formData tenga los datos cargados OK
         pushData( { ...order , buyer: formData } );
      }
 
     return( 
-        <>
+        <div className='main-cart-cont'>
+        <div >
+            <h2> CARRITO DE COMPRAS</h2>
+        </div>
         { cartProducts.length === 0 ? 
             (<><p> No hay productos en el carrito. Vuelve al shop. </p>
             <Link to='/'> COMPRAR </Link> </>) :
              (cartProducts.map((product) =>{
                     return(
                         <>
-                        <div className='item-checkout-product' key={product.id}>
-                            <img src={`/assets/${product.img} `} alt={`Imagen : ${product.img} `} />
-                            <h3>{product.name}</h3>
-                            <p>{product.detail}</p>
-                            <p> -Cantidad: {product.cantidad}   -AR$ unitario: {product.price}</p>
-                            <p> -SubTotal: { product.cantidad * product.price}</p>
+                        <div className='item-checkout' key={product.id}>
+                            <div>
+                                <img src={`/assets/${product.img} `} alt={`Imagen : ${product.img} `} />
+                                <div className='item-name'>{product.name}</div>
+                            </div>
+                            
+
+                            <div className='item-info'>
+                                <p>{product.detail}</p>
+                                <p> -Cantidad: {product.cantidad}   -Precio unitario: {product.price} AR$</p>
+                                <p> -SubTotal: { product.cantidad * product.price} AR$</p>
+                            </div>
+                           
                             <button onClick={ () => removeFromCart(product.id)  }>ELIMINAR</button>
                         </div>
                         </>
                     )
                 } ))
         }
-        <div className='total-cart-price'>
+        <div className='item-checkout'>
             {cartProducts.length!==0 && <p>PRECIO FINAL: ${totalCart}</p>}
-        </div>
-        <div >
             <button onClick={ ()=> { setShowModal(true) } }> IR A PAGAR </button>
         </div>
+
 
         {   //FALTA VALIDAR INFO DEL FORMULARIO Y UNA VEZ GENERADO EL PEDIDO, LIMPIAR LOS ESTADOS!!-------------->>>>>>>>>>>>>>>>>
 
             showModal &&
                 <Modal name = "Datos de Contacto" close = { ()=>{ setShowModal() } }>
-
                     { 
                         showSuccess ? (
                             <>
@@ -99,15 +107,9 @@ const Cart = ()=>{
                             </form>
                         )
                     }
-
-                </Modal>
-           
+                </Modal>    
         }
-        
-
-    </>
-
-       
+        </div>  
     )
 }
 export default Cart;
@@ -128,11 +130,3 @@ export default Cart;
             <p> -Total Carrito: AR$ { totalCart } </p>
         </>
 */
-
-
-//CART:
-//Mostrar un listado de los productos. Precio Total 
-//Agregar Ruta cart al browserRouter
-//Mostrar todos los items agregados y agrupados
-//Por cada tipo de item, incluye un control para eliminar items
-// condicional: de no haber items muestra un mensaje y  un link (reacto router link) para volver al landing(itemDetailContainer)

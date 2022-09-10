@@ -1,11 +1,10 @@
 import "./NavBar.scss";
 import CartWidget from "../CartWidget/CartWidget";
 //importo para Boostrap-react ----
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-
+//import 'bootstrap/dist/css/bootstrap.min.css';
+//import Container from 'react-bootstrap/Container';
+//import Nav from 'react-bootstrap/Nav';
+//import Navbar from 'react-bootstrap/Navbar';
 //importa para Link (Navegacion)
 import { Link } from "react-router-dom";
 
@@ -21,15 +20,12 @@ const NavBar = () => {
     { name : "Pantalones" , url : "/category/Pantalones"}
   ];
   return (
-            <div>
-                <Navbar bg="dark" variant="dark">
-                  <Container>
-                   <Navbar.Brand ><Link to="/"> Deferrari Online Store </Link></Navbar.Brand>
-                        <Nav className="me-auto">
-
-                          <Link to="/" className="link-NavBar"> Home </Link>
-                                              
-                            {
+        <>
+              <div className="header">
+                   <div ><Link to="/" className="logo"> Deferrari Online Store </Link></div>
+                         <div className="main-navbar-links">
+                            <Link to="/" className="link-NavBar"> Home </Link>                    
+                              {
                               links.map(
                                     (link,indice) => {
                                         return(
@@ -37,12 +33,13 @@ const NavBar = () => {
                                         )
                                     }
                                 )
-                            }
-                            <CartWidget />
-                    </Nav>
-                  </Container>
-                 </Navbar>
-            </div>
+                              }
+                              <div className="cart-widget">
+                                <CartWidget />
+                              </div>    
+                     </div>
+              </div>
+        </>
     )  
 } 
 export default NavBar

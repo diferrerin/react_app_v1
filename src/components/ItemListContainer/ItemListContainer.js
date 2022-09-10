@@ -34,13 +34,14 @@ const ItemListContainer = ({section})=>{
     } , [] ); 
   
     return(
-       <div className = "item-list-cont" >
-            <div className=" list-products">
+       <div >
+            <h2> Productos </h2>
+            <div >
                 <h3> {section} </h3>
                 <ItemList dataProducts={listProducts}/>
             </div>
        </div> 
-    )
+    )      
 }
 
 export default ItemListContainer;

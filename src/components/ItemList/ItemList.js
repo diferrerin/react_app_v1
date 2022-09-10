@@ -1,5 +1,5 @@
 import ItemProduct from "../ItemProduct/ItemProduct";
-
+//armado: APP --> HOME --> ITEMLIST --> ITEMPRODUCT (CSS en ITEMPRODUCT)
 const ItemList = ({dataProducts})=>{
     return (
         <>
@@ -13,3 +13,4 @@ const ItemList = ({dataProducts})=>{
 }
 
 export default ItemList;
+

@@ -50,7 +50,7 @@ const ItemCount = ({ qtyCart , productData })=>{
           
         </div>
         <div className="item-count-dos">
-            <button onClick={onAdd}> ADD TO CART </button>
+            <button onClick={onAdd}> AGREGAR </button>
         </div>
         
         </>

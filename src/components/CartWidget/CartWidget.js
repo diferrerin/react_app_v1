@@ -4,15 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../../context/CartContext';
 import './CartWidget.scss';
-
+import { Link } from "react-router-dom";
 const CartWidget = () => {
 
   const { cartProducts,  contador } = useContext(CartContext);
 
-  return ( //NO FUNCIONA, no muestra el valor de contador.............
-    <div >
-      <FontAwesomeIcon icon={ faCartShopping } size="1x" color='white'  />
-      { cartProducts.length !== 0 && <p> { contador } cont</p> }
+  return ( 
+    <div className="cont-cartwidget">
+      <Link to="/cart" style={{textDecoration: 'none'}} >  
+           <FontAwesomeIcon icon={ faCartShopping } size="1x" color='black'  /> 
+      </Link>
+      { cartProducts.length !== 0 && <h6> { contador } </h6> }
 
     </div>
   );

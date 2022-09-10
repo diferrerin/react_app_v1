@@ -1,11 +1,47 @@
-.link-NavBar{
+.header {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    overflow: hidden;
+    //background-color: #a3a2a2;
+    background: linear-gradient(-20deg , #bb7413, #e7d25c);
+    padding: 10px 10px;
+    border-radius: 2px;
+  }
+
+.logo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 12px;
+}
+
+.link-NavBar{
+    display: flex;
+    align-items: flex-center;
+    
+    justify-content: center;
     text-align: center;
     float:left;
+    background-color: #f3f3f3;
     box-shadow: 1px 1px 5px gray ;
-    margin: 4px;
+    margin: 5px;
+    border: 2px;
+    padding: 12px;
     text-decoration: none;
-    color: rgb(235, 225, 225);
+    color: black;
+
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 2px;
+}
+
+.cart-widget{
+    display: flex;
+    align-items: flex-end;
+    font-size: 18px;
+    padding: 12px;
 }

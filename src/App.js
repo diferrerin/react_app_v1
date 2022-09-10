@@ -2,7 +2,6 @@
 import './App.css';
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
-//import Modal from './components/Modal/Modal'; //Para usar Modal
 //importo para Boostrap-react ----
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -16,7 +15,6 @@ import Checkout from './pages/Checkout';
 import CartProvider from './context/CartContext';
 
 //Funcion App principal 
-//-----Se modifica item:id 03/08/22------ funciona ok
 function App() {
   return ( 
     <> 
@@ -44,7 +42,6 @@ function App() {
 
             <Route path='/item/:id' element={
                       <Container>
-                          <h2> Detalle de Item </h2>
                           <Detail  />
                       </Container>
             }/>
@@ -63,17 +60,5 @@ function App() {
     </>
   );
 }
-
 export default App;
 
-/*  MODAL desactivado:
-          <Row>
-              <Modal name=" Registro  ">
-                  <form>
-                      <input type="text" />
-                      <button>Enviar</button>
-                  </form>
-              </Modal> 
-          </Row>
-
-*/
