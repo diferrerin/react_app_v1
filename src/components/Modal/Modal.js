@@ -8,7 +8,7 @@ const Modal = ({name,close,children})=>{
         <div className="modal-custom"> 
             <h4> { name }   </h4>
             {children}
-            <button onClick={ () => close(false)  }>CERRAR</button>
+            <button onClick={ () => close(false)  } className="modal-button">CERRAR</button>
         </div>
         
         </>

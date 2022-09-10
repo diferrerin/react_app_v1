@@ -7,7 +7,6 @@ import Modal from '../Modal/Modal';
 import db from '../../firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 
-
 const Cart = ()=>{
     const { cartProducts , removeFromCart, totalCart } = useContext(CartContext); 
 
@@ -96,12 +95,22 @@ const Cart = ()=>{
                             </>
                         ):(
                             <form onSubmit={ submitData }>
-                                <label >Nombre: </label>
-                                <input type='text' name='name' placeholder='Ingrese Nombre'  value={formData.name} onChange={handleChange} />
-                                <label >Numero de Telefono: </label>
-                                <input type='number' name='phone' placeholder='Ingrese Telefono' value={formData.phone} onChange={handleChange}/>
-                                <label >Correo Electronico: </label>
-                                <input type='text' name='email' placeholder='Ingrese EMail' value={formData.email} onChange={handleChange}/>
+                                <ul>
+                                    <li>
+                                        <label >Nombre: </label>
+                                        <input type='text' name='name' placeholder='Ingrese Nombre'  value={formData.name} onChange={handleChange} />
+                                    </li>
+                                    <li>
+                                        <label >Numero de Telefono: </label>
+                                        <input type='number' name='phone' placeholder='Ingrese Telefono' value={formData.phone} onChange={handleChange}/>
+                                    </li>
+                                    <li>
+                                        <label >Correo Electronico: </label>
+                                        <input type='text' name='email' placeholder='Ingrese EMail' value={formData.email} onChange={handleChange}/>
+                                    </li>
+
+                                </ul>
+                               
                                 
                                 <button type='submit'>ENVIAR</button>
                             </form>
